@@ -64,8 +64,7 @@ spl_autoload_register(function($classname) {
 
 */
 
-//$config['base_url']	= 'http://mcqs.chitral.com.pk/';
-$config['base_url']	= 'localhost/mcqs';
+$config['base_url']	= 'http://localhost/mcqs/';
 
 /*
 
