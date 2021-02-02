@@ -21,7 +21,8 @@ if (count($topics) > 0) {
   </a>
   <?php }
 } else {
-  echo "0 results";
+ 
+  echo "You complete this section. would you like to retry again?";
 } 
 
    ?>
