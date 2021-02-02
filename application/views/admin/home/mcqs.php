@@ -49,7 +49,7 @@
       </p>
   <?php }
   } else {
-    echo "You Complete this Topic Would you like to try again?"
+    echo "You Complete this Topic Would you like to try again?";
   }
 
   ?>
