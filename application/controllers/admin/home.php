@@ -57,7 +57,7 @@ class Home extends Admin_Controller{
     $this->data["title"] = $category;
     
     $query = "SELECT * FROM `mcqs`WHERE `mcqs`.`category`='".$category."' 
-              AND id NOT IN(SELECT mcq_id  FROM user_mcqs WHERE user_id = '".$this->session->userdata("user_id")." AND `status`=1') 
+              AND id NOT IN(SELECT mcq_id  FROM user_mcqs WHERE user_id = '".$this->session->userdata("user_id")."' AND `status`='1') 
               LIMIT 1";
     $questions = $this->db->query($query)->result();
     $this->data["questions"] = $questions;
@@ -78,6 +78,15 @@ public function add_user_mcqs(){
     if($this->db->query($query)){
         echo 1;
     }
+}
+
+public function practice_again($topic){
+    $topic = str_replace("_", " ", $topic);
+    $query="UPDATE `user_mcqs` SET `status`=0 WHERE `user_id`='".$this->session->userdata("user_id")."' AND `mcq_id` IN ( SELECT id FROM `mcqs`WHERE `mcqs`.`category`='".$topic."');";
+    $this->db->query($query);
+    $main_page=base_url().ADMIN_DIR.$this->router->fetch_class()."/mcqs/$topic";
+  	redirect($main_page); 
+
 }
 
     

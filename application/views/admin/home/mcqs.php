@@ -47,12 +47,16 @@
         <?php echo $question->answer_detail; ?>
         <p id="next_button" style="text-align: center;"></p>
       </p>
-  <?php }
-  } else {
-    echo "You Complete this Topic Would you like to try again?";
-  }
+  <?php } } else { ?>
+  <div style="text-align: center !important;">
+    <h3>Complete</h3>
+    <hr />
+    <p>You complete this topic, would you like to practice again?</p>
+    <?php $topic = $this->uri->segment(4); ?>
+    <a class="btn btn-warning" href="<?php echo site_url(ADMIN_DIR."home/practice_again/$topic"); ?>">Practice Again</a>
 
-  ?>
+  </div>
+  <?php } ?>
   <script>
     function check_answer(answer) {
       correct_answer = '<?php echo $question->answer; ?>';
