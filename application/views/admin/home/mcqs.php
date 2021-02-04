@@ -1,6 +1,7 @@
 <div style="margin: 10px;" id="mcq">
-
-
+<div class="divide-10"></div>
+ <h5><strong><a href="<?php echo site_url(ADMIN_DIR . "home"); ?>">
+ <?php echo $title; ?> </a> </strong></h5>
   <?php
 
   if (count($questions) > 0) {
