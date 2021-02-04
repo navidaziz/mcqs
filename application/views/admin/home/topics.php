@@ -22,8 +22,16 @@ if (count($topics) > 0) {
        $complete =  ' background-color:#90ee90; ';
        $complete_text = '<strong style="color:green;">Completed</strong>';
      }else{
-      $complete ='';
-      $complete_text='';
+      if($this->db->query($query)->result()[0]->total==$topic->total){
+
+        $complete ='';
+        $complete_text='';
+
+      }else{
+        $complete =' background-color:#FFEFD5; ';
+        $complete_text='<strong style="color:green;">Inprogress '.($topic->total-$this->db->query($query)->result()[0]->total).' / </strong>';
+      }
+      
      }
     ?>
 
